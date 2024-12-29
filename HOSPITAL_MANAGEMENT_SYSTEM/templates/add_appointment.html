@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Appointment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <h1>Add Appointment</h1>
+    <form method="POST">
+        <label for="doctor_id">Doctor:</label>
+        <select name="doctor_id" id="doctor_id">
+            {% for doctor in doctors %}
+            <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="patient_id">Patient:</label>
+        <select name="patient_id" id="patient_id">
+            {% for patient in patients %}
+            <option value="{{ patient.id }}">{{ patient.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="appointment_date">Appointment Date:</label>
+        <input type="text" name="appointment_date" id="appointment_date" required>
+        <br>
+        <label for="diagnosis">Diagnosis:</label>
+        <input type="text" name="diagnosis" id="diagnosis">
+        <br>
+        <label for="co">Co:</label>
+        <input type="text" name="co" id="co">
+        <br>
+        <button type="submit">Add Appointment</button>
+    </form>
+    <a href="{{ url_for('view_appointments') }}">Back to Appointments</a>
+</body>
+</html>

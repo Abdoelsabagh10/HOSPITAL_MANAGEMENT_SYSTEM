@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('../static/css/hos.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            overflow: hidden; 
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.269); 
+            padding: 20px 40px;
+            border-radius: 15px;
+            width: 350px; 
+        }
+
+        .container h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .container p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .container li {
+            margin-bottom: 10px;
+        }
+
+        .container a {
+            display: block;
+            text-decoration: none;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .container a:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hospital Management System</h1>
+        <p>Effortlessly manage hospital operations:</p>
+        <ul>
+            <li><a href="/departments">Manage Departments</a></li>
+            <li><a href="/doctors">Manage Doctors</a></li>
+            <li><a href="/patients">Manage Patients</a></li>
+            <li><a href="/nurses">Manage Nurses</a></li>
+            <li><a href="/appointments">Manage Appointments</a></li>
+            <li><a href="/shifts">Manage Shifts</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Nurse</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <h1>Edit Nurse</h1>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{ nurse.name }}" required><br>
+        <label for="department_id">Department:</label>
+        <select name="department_id" id="department_id" required>
+            {% for department in departments %}
+            <option value="{{ department.id }}" {% if department.id == nurse.department_id %}selected{% endif %}>
+                {{ department.name }}
+            </option>
+            {% endfor %}
+        </select><br>
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" value="{{ nurse.phone_number }}"><br>
+        <label for="shift_id">Shift ID:</label>
+        <input type="number" id="shift_id" name="shift_id" value="{{ nurse.shift_id }}"><br>
+        <label for="supervisor_id">Supervisor ID:</label>
+        <input type="number" id="supervisor_id" name="supervisor_id" value="{{ nurse.supervisor_id }}"><br>
+        <button type="submit">Update Nurse</button>
+    </form>
+    <a href="{{ url_for('view_nurses') }}">Back to Nurses</a>
+</body>
+</html>

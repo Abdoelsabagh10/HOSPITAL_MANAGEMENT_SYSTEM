@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Shift</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <h1>Edit Shift</h1>
+    <form method="POST">
+        <label for="staff_name">Staff Name:</label>
+        <select name="staff_name" id="staff_name" required>
+            <option value="Morning" {% if shift.staff_name == 'Morning' %}selected{% endif %}>Morning</option>
+            <option value="Evening" {% if shift.staff_name == 'Evening' %}selected{% endif %}>Evening</option>
+            <option value="Night" {% if shift.staff_name == 'Night' %}selected{% endif %}>Night</option>
+        </select>
+        <br>
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="role" value="{{ shift.role }}" required>
+        <br>
+        <label for="start_time">Start Time:</label>
+        <input type="time" name="start_time" id="start_time" value="{{ shift.start_time }}" required>
+        <br>
+        <label for="end_time">End Time:</label>
+        <input type="time" name="end_time" id="end_time" value="{{ shift.end_time }}" required>
+        <br>
+        <button type="submit">Update Shift</button>
+    </form>
+    <a href="{{ url_for('view_shifts') }}">Back to Shifts</a>
+</body>
+</html>

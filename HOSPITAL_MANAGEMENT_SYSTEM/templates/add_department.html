@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Department</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Add Department</h1>
+    <form action="/add-department" method="POST">
+        <label for="id">Department ID:</label>
+        <input type="number" name="id" id="id" required>
+        <br>
+        <label for="name">Department Name:</label>
+        <input type="text" name="name" id="name" required>
+        <br>
+        <button type="submit" class="add-btn">Add Department</button>
+    </form>
+    <a href="/departments">Back to Departments</a>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Patients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <h1>All Patients</h1>
+    <a href="{{ url_for('add_patient_route') }}">Add New Patient</a>
+    <table >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th>Medical History</th>
+                <th>Doctor</th>
+                <th>Nurse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient.id }}</td>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.gender }}</td>
+                <td>{{ patient.phone_number }}</td>
+                <td>{{ patient.address }}</td>
+                <td>{{ patient.medical_history }}</td>
+                <td>{{ patient.doctor_id }}</td>
+                <td>{{ patient.nurse_id }}</td>
+                <td>
+                    <a href="{{ url_for('edit_patient_route', id=patient.id) }}">Edit</a> |
+                    <a href="{{ url_for('delete_patient_route', id=patient.id) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
